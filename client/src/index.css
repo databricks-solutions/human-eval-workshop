@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Material Design 3 - Light Theme */
+    /* Surface colors */
+    --background: 0 0% 99%; /* Surface */
+    --foreground: 0 0% 10%; /* On-Surface */
+
+    /* Primary palette - Tonal scale - Beautiful purple theme */
+    --primary: 262 52% 47%; /* Primary 40 - Rich Purple #6366F1 (Indigo-500) */
+    --primary-foreground: 0 0% 100%; /* On-Primary */
+    --primary-container: 262 90% 95%; /* Primary 95 - Light Purple Container */
+    --primary-container-foreground: 262 52% 35%; /* On-Primary-Container */
+
+    /* Secondary palette - Complementary purple tones */
+    --secondary: 270 60% 96%; /* Secondary - Very Light Purple for badges */
+    --secondary-foreground: 262 52% 47%; /* Secondary foreground - matches primary */
+    --secondary-container: 270 60% 94%; /* Secondary Container */
+    --secondary-container-foreground: 262 52% 35%; /* On-Secondary-Container */
+
+    /* Tertiary palette */
+    --tertiary: 350 40% 47%; /* Tertiary 40 - #7D5260 */
+    --tertiary-foreground: 0 0% 100%; /* On-Tertiary */
+    --tertiary-container: 345 100% 90%; /* Tertiary 90 - #FFD8E4 */
+    --tertiary-container-foreground: 350 47% 20%; /* On-Tertiary-Container */
+
+    /* Error palette */
+    --destructive: 0 72% 51%; /* Error 40 - #BA1A1A */
+    --destructive-foreground: 0 0% 100%; /* On-Error */
+    --error-container: 0 100% 95%; /* Error 90 - #FFDAD6 */
+    --error-container-foreground: 0 65% 31%; /* On-Error-Container */
+
+    /* Surface variants */
+    --card: 0 0% 99%; /* Surface */
+    --card-foreground: 0 0% 10%; /* On-Surface */
+    
+    --popover: 0 0% 99%; /* Surface */
+    --popover-foreground: 0 0% 10%; /* On-Surface */
+
+    --muted: 270 12% 93%; /* Surface-Variant - #E7E0EC */
+    --muted-foreground: 264 7% 29%; /* On-Surface-Variant - #49454F */
+
+    --accent: 264 100% 90%; /* Primary Container */
+    --accent-foreground: 258 43% 21%; /* On-Primary-Container */
+
+    /* Outline colors */
+    --border: 270 6% 47%; /* Outline - #79747E */
+    --input: 270 6% 47%; /* Outline */
+    --ring: 258 100% 47%; /* Primary */
+
+    /* Additional semantic colors */
+    --success: 145 63% 42%; /* Success - #2E7D32 */
+    --success-foreground: 0 0% 100%;
+    --success-container: 145 80% 88%; /* Success Container */
+    --success-container-foreground: 145 100% 15%;
+
+    --warning: 36 100% 50%; /* Warning - #F9A825 */
+    --warning-foreground: 0 0% 10%;
+    --warning-container: 36 100% 92%; /* Warning Container */
+    --warning-container-foreground: 36 100% 20%;
+
+    --info: 207 90% 54%; /* Info - #1976D2 */
+    --info-foreground: 0 0% 100%;
+    --info-container: 207 100% 92%; /* Info Container */
+    --info-container-foreground: 207 100% 20%;
+
+    /* Elevation and shadow */
+    --shadow: 0 0% 0%;
+    --scrim: 0 0% 0%;
+
+    --radius: 0.75rem; /* M3 uses larger radius */
+    
+    /* Extended purple palette for semantic use */
+    --purple-50: 262 90% 98%;
+    --purple-100: 262 90% 95%;
+    --purple-200: 262 83% 88%;
+    --purple-300: 262 74% 78%;
+    --purple-400: 262 63% 65%;
+    --purple-500: 262 52% 47%; /* Matches primary */
+    --purple-600: 262 52% 40%;
+    --purple-700: 262 52% 35%;
+    --purple-800: 262 45% 28%;
+    --purple-900: 262 40% 22%;
+  }
+
+  .dark {
+    /* Material Design 3 - Dark Theme */
+    /* Surface colors */
+    --background: 0 0% 6%; /* Surface */
+    --foreground: 0 0% 90%; /* On-Surface */
+
+    /* Primary palette - Tonal scale (adjusted for dark) */
+    --primary: 262 70% 75%; /* Primary 80 - Lighter Purple for dark mode */
+    --primary-foreground: 262 52% 15%; /* On-Primary */
+    --primary-container: 262 47% 30%; /* Primary 30 - Darker Purple Container */
+    --primary-container-foreground: 262 90% 88%; /* On-Primary-Container */
+
+    /* Secondary palette */
+    --secondary: 270 20% 25%; /* Secondary - Darker for badges in dark mode */
+    --secondary-foreground: 262 70% 75%; /* Secondary foreground - lighter purple */
+    --secondary-container: 262 30% 20%; /* Secondary Container */
+    --secondary-container-foreground: 262 70% 80%; /* On-Secondary-Container */
+
+    /* Tertiary palette */
+    --tertiary: 345 100% 84%; /* Tertiary 80 - #EFB8C8 */
+    --tertiary-foreground: 350 47% 20%; /* On-Tertiary */
+    --tertiary-container: 350 40% 28%; /* Tertiary 30 - #633B48 */
+    --tertiary-container-foreground: 345 100% 90%; /* On-Tertiary-Container */
+
+    /* Error palette */
+    --destructive: 0 100% 84%; /* Error 80 - #FFB4AB */
+    --destructive-foreground: 0 65% 31%; /* On-Error */
+    --error-container: 0 72% 35%; /* Error 30 - #93000A */
+    --error-container-foreground: 0 100% 95%; /* On-Error-Container */
+
+    /* Surface variants */
+    --card: 0 0% 11%; /* Surface Container */
+    --card-foreground: 0 0% 90%; /* On-Surface */
+    
+    --popover: 0 0% 11%; /* Surface Container */
+    --popover-foreground: 0 0% 90%; /* On-Surface */
+
+    --muted: 270 11% 20%; /* Surface-Variant - #49454F */
+    --muted-foreground: 270 11% 69%; /* On-Surface-Variant - #CAC4D0 */
+
+    --accent: 258 57% 29%; /* Primary Container */
+    --accent-foreground: 264 100% 90%; /* On-Primary-Container */
+
+    /* Outline colors */
+    --border: 270 11% 40%; /* Outline - #938F99 */
+    --input: 270 11% 40%; /* Outline */
+    --ring: 264 100% 80%; /* Primary */
+
+    /* Additional semantic colors */
+    --success: 145 63% 60%; /* Success (lighter) */
+    --success-foreground: 145 100% 15%;
+    --success-container: 145 63% 25%; /* Success Container */
+    --success-container-foreground: 145 80% 88%;
+
+    --warning: 36 100% 65%; /* Warning (lighter) */
+    --warning-foreground: 36 100% 20%;
+    --warning-container: 36 100% 25%; /* Warning Container */
+    --warning-container-foreground: 36 100% 92%;
+
+    --info: 207 90% 70%; /* Info (lighter) */
+    --info-foreground: 207 100% 20%;
+    --info-container: 207 90% 25%; /* Info Container */
+    --info-container-foreground: 207 100% 92%;
+
+    /* Elevation and shadow */
+    --shadow: 0 0% 0%;
+    --scrim: 0 0% 0%;
+    
+    /* Extended purple palette for semantic use (dark mode) */
+    --purple-50: 262 40% 15%;
+    --purple-100: 262 40% 20%;
+    --purple-200: 262 45% 28%;
+    --purple-300: 262 47% 35%;
+    --purple-400: 262 52% 45%;
+    --purple-500: 262 70% 75%; /* Matches primary in dark mode */
+    --purple-600: 262 70% 80%;
+    --purple-700: 262 75% 85%;
+    --purple-800: 262 80% 88%;
+    --purple-900: 262 85% 92%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

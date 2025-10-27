@@ -1,0 +1,203 @@
+[project]
+name = "human-eval-workshop"
+version = "0.1.0"
+description = "A comprehensive full-stack application for conducting human evaluation workshops on AI/ML models"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE.MD" }
+authors = [
+    { name = "Databricks Team" }
+]
+keywords = ["databricks", "mlflow", "human-evaluation", "annotation", "workshops", "fastapi"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Framework :: FastAPI",
+]
+
+dependencies = [
+    "fastapi>=0.104.1",
+    "uvicorn[standard]>=0.24.0",
+    "databricks-sdk>=0.14.0",
+    "databricks-sql-connector>=3.1.0",
+    "pydantic>=2.5.0",
+    "python-multipart>=0.0.6",
+    "python-dotenv>=1.0.0",
+    "httpx>=0.25.0",
+    "pandas>=2.1.0",
+    "requests>=2.32.4",
+    "rich>=14.0.0",
+    "click>=8.1.0",
+    "mlflow[databricks]>=3.1.1",
+    "cryptography>=41.0.0",
+    "bcrypt>=4.0.0",
+    "pyyaml>=6.0",
+    "sqlalchemy>=2.0.0",
+    "gunicorn>=21.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "pre-commit>=3.5.0",
+    "httpx>=0.25.0",  # For testing
+]
+
+test = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "httpx>=0.25.0",
+]
+
+[project.scripts]
+human-eval-workshop = "server.app:main"
+
+[project.urls]
+Homepage = "https://github.com/databricks/human-eval-workshop"
+Documentation = "https://github.com/databricks/human-eval-workshop#readme"
+Repository = "https://github.com/databricks/human-eval-workshop"
+Issues = "https://github.com/databricks/human-eval-workshop/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["server"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0",
+    "pre-commit>=3.5.0",
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py311", "py312", "py313", "py314"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | \.tox
+  | build
+  | dist
+  | __pycache__
+  | node_modules
+  | client
+)/
+'''
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+    "node_modules",
+    "client",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long (handled by black)
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["server"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+strict_optional = true
+
+[[tool.mypy.overrides]]
+module = [
+    "databricks.*",
+    "mlflow.*",
+    "pandas.*",
+    "rich.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--cov=server",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = ["server"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__pycache__/*",
+    "*/venv/*",
+    "*/.venv/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+

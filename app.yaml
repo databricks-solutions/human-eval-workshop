@@ -1,0 +1,7 @@
+command: 
+  - "gunicorn"
+  - "server.app:app"
+  - "-w"
+  - "2"
+  - "--worker-class"
+  - "uvicorn.workers.UvicornWorker"

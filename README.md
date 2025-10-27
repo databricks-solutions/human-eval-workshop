@@ -242,7 +242,6 @@ Set these environment variables for Databricks integration:
 
 - `DATABRICKS_HOST` - Your Databricks workspace URL
 - `DATABRICKS_TOKEN` - Personal access token or service principal token
-- `DATABRICKS_WAREHOUSE_ID` - SQL Warehouse ID for exports
 
 
 ## 📄 License

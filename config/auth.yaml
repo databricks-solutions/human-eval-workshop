@@ -2,7 +2,7 @@
 # This file contains the credentials for facilitators who can create and manage workshops
 
 facilitators:
-  - email: "facilitator123"
+  - email: "facilitator123@email.com"
     password: "facilitator123"  # In production, use environment variables
     name: "Databricks Facilitator"
     description: "Primary workshop facilitator"
